@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador Aleatorio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #007BFF;
+    }
+  </style>
+</head>
+<body>
+  <h1>Generador de Números Aleatorios</h1>
+  <button onclick="generarNumero()">Generar Número</button>
+  <div id="resultado">Haz clic en el botón</div>
+
+  <script>
+    function generarNumero() {
+      const numeroAleatorio = Math.floor(Math.random() * 100) + 1; // Número entre 1 y 100
+      document.getElementById('resultado').textContent = `Número generado: ${numeroAleatorio}`;
+    }
+  </script>
+</body>
+</html>
