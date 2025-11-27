@@ -2,14 +2,14 @@ import {Injectable, NotFoundException} from '@nestjs/common'
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import { InjectModel } from '@nestjs/mongoose';
-import { Product } from 'src/schemas/Product.schema';
+import { Product, ProductDocument } from 'src/schemas/Product.schema';
 import { Model } from 'mongoose';
 
 
 
 @Injectable()
 export class ProductsService{
-    constructor (@InjectModel(Product.name) private productmodel: Model<Product>){}
+    constructor (@InjectModel(Product.name) private productmodel: Model<ProductDocument>){}
 
     async obtenertodomong(){
         const data= await this.productmodel.find();
@@ -43,4 +43,5 @@ export class ProductsService{
     if (!eliminado) throw new NotFoundException(`No se encontró producto con ID ${id}`);
     return eliminado;
   }
+
 }
